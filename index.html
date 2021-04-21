@@ -1,0 +1,76 @@
+<html>
+   
+   <head>
+      <title>Welcome to Moylena Medical</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+	<link rel="stylesheet" href="/styles.css">
+	<script src="/jquery-script.js"></script>
+   </head>
+   
+<body>
+	
+		<div class="container-fluid" align = "center">
+			<div class="row" style="margin:50px;">
+				<div class="col">
+				</div>
+				
+				<div class="col-8" style="border:1px solid #B4B4B4;">
+						<img src="resources/img/RQC-Logo-1.png" style="max-width:50%;"/>
+							<h1 style="font-size: 1.8rem;">Welcome to your RQC Quotes web interface.</h1>
+							
+							<div style="margin:60px 0px; 20px 0px">	
+								<p>Existing customers can login below</p>
+								<a class="btn btn-primary" style="margin:0 0 20px 0;" href="/login.html" role="button">Log In Here!</a>
+							</div>
+							
+							<div style="margin:35px 0px 0px 10px;float:left;">
+								<p style="margin-bottom:5px;">Select Language</p>
+								<select>
+								  <option value="English">English</option>
+								  <option value="irish-gaelic">Irish Gaelic</option>
+								  <option value="spanish">Spanish</option>
+								  <option value="mandarin">Mandarin</option>
+								</select>
+							</div>
+							
+							<!-- Button trigger modal -->
+							<div style="margin:50px 0px 10px 0px;float:right;">
+							<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+							  Click for help
+							</button>
+							</div>
+							<!-- Modal -->
+							<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+							  <div class="modal-dialog" role="document">
+								<div class="modal-content">
+								  <div class="modal-header">
+									<h5 class="modal-title" id="exampleModalLongTitle">Help</h5>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									  <span aria-hidden="true">&times;</span>
+									</button>
+								  </div>
+								  <div class="modal-body">
+									<h3>Welcome to RQC Quotes Web</h3>
+									<p>From this interface you can review and print the quotes you have saved to date.  If you are having problems logging in click the link below for help.</p>
+									<button type="button" class="btn btn-primary" data-dismiss="modal">Click to Call</button>
+								  </div>
+								  <div class="modal-footer">
+									<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+								  </div>
+								</div>
+							  </div>
+							</div>
+							<!--modal-->
+				</div><!--div col-8-->
+				
+				<div class="col">
+				</div>	
+			</div>
+					
+		</div>
+
+</body>
+</html>
