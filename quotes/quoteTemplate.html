@@ -1,0 +1,164 @@
+<html>
+   
+   <head>
+		<title>Welcome to RQC</title>
+			<meta charset="UTF-8">
+			<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+			<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+			<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+			<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+			<link rel="stylesheet" href="../stylesheets/styles.css">
+			<!--jsPDF variables-->
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+			<script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+			<script>window.jsPDF = window.jspdf.jsPDF;</script>
+			<script src="https://smtpjs.com/v3/smtp.js">
+  </script>
+   </head>
+   
+<body>
+	
+		<div class="container-fluid" align = "center">
+			<div class="row" style="margin:10px;">
+				<div class="col">
+				</div>
+				
+				<div class="col-8" style="border:1px solid #B4B4B4;">
+						<img src="../resources/img/RQC-Logo-1.png" style="max-width:25%;"/>
+							<h1 style="font-size: 1.8rem;">Review and print or send your quote</h1>
+							
+							
+								<p>Your quote below can be selected for downloading, sending via to your customers email or printed</p>							
+							<div id="section-to-print" class="table-responsive">			
+										<table class="table">
+											<tbody id="table">
+												<tr id="headerRow">
+													<th style="text-align:left">Customer Name and property address</th>
+													<th></th>
+													<th></th>
+													<th style="text-align:right">Business Information</th>
+												</tr>
+												<tr id="docHeaders">
+													<td id="custData"></td>
+													<td></td>
+													<td></td>
+													<td id="busiData"><img class="quote-logo" src="../resources/img/BLC-Logo.png"/><br/>BLC Landlord Services<br/>info@blclandlordservices.co.uk</td>
+												</tr>
+											</tbody>
+											</table>
+											<span class="after-header"/>
+											<table class="table">
+											<tbody id="secondTable">
+											</tbody>
+											</table>
+											<span class="after-content"/>
+											<table class="table">
+											<tbody id="totalPrice">
+											<tr>
+											<td>Total price:</td>
+											<td id="totalCost" style="padding-right:50px; width:100%;text-align:right;"></td>
+											<td></td>
+											<td></td>
+											</tbody>
+											</table>
+							</div>
+									 
+									  <button type="submit" class="btn btn-primary cancel">Cancel</button>
+									  <button type="submit" name="download" value="Download" class="btn btn-primary download" onclick="saveToComp()">Download</button>
+									  <button type="submit" name="print" class="btn btn-primary Print" onclick="sendToPrint()">Print</button>
+									  <button type="submit" name="testPDF" class="btn btn-primary Print" onclick="testPDF()">Test</button>
+									  <button type="submit" name="send" value="Submit" class="btn btn-primary send" data-toggle="modal" data-target="#sendViaEmail">Send via Email</button>
+							
+							
+							
+							
+							
+							<!--Get email pop-up modal-->
+							<div class="modal" tabindex="-1" role="dialog" id="sendViaEmail">
+								<div class="modal-dialog" role="document">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h5 class="modal-title">Send via email</h5>
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+											  <span aria-hidden="true">&times;</span>
+											</button>
+										</div>
+										<div class="modal-body">
+											<p>Enter the email to send to below.</p>
+											
+										<div class="form-group">
+											<input type="text" class="form-control" id="emailFromModal" aria-describedby="emailHelp" placeholder="Email">
+											<p id="emailWarning"style="color:red;"></p>
+										</div>
+											
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-primary"  onclick="sendWithEmail()">Send Email</button>
+											<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+							
+							<!--help button-->
+							<div style="margin:35px 0px 0px 10px;float:left;">
+								<p style="margin-bottom:5px;">Select Language</p>
+								<select>
+								  <option value="English">English</option>
+								  <option value="irish-gaelic">Irish Gaelic</option>
+								  <option value="spanish">Spanish</option>
+								  <option value="mandarin">Mandarin</option>
+								</select>
+							</div>
+							
+							<!-- Button trigger modal -->
+							<div style="margin:50px 0px 10px 0px;float:right;">
+							<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+							  Click for help
+							</button>
+							</div>
+							<!-- Modal -->
+							<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+							  <div class="modal-dialog" role="document">
+								<div class="modal-content">
+								  <div class="modal-header">
+									<h5 class="modal-title" id="exampleModalLongTitle">Help</h5>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									  <span aria-hidden="true">&times;</span>
+									</button>
+								  </div>
+								  <div class="modal-body">
+									<h3>Welcome to RQC Quotes Web</h3>
+									<p>From this interface you can review and print the quotes you have saved to date.  If you are having problems logging in click the link below for help.</p>
+									<button type="button" class="btn btn-primary" data-dismiss="modal">Click to Call</button>
+								  </div>
+								  <div class="modal-footer">
+									<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+								  </div>
+								</div>
+							  </div>
+							</div>
+							<!--modal-->
+				</div><!--div col-8-->
+				
+				<div class="col">
+				</div>	
+			</div>
+					
+		</div>
+<!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+
+  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
+
+  <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+  <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-analytics.js"></script>
+
+  <!-- Add Firebase products that you want to use -->
+  <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-firestore.js"></script>
+  <script src="../resources/js/quoteTemplate.java"></script>
+
+</body>
+</html>
