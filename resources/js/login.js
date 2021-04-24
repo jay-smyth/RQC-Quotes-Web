@@ -1,5 +1,4 @@
  window.addEventListener("load", function () {
-     //not jquery!
             // Access the form element...
             var form = document.getElementById("myForm");
 
@@ -26,7 +25,17 @@ function signInWithEmailPassword() {
     .catch((error) => {
       var errorCode = error.code;
       var errorMessage = error.message;
-	  console.log("Failed! I think!?" + errorMessage);
+	  console.log("Failed! I think!? " + errorCode + ", message"+ errorMessage);
+	  if(errorCode == "auth/invalid-email"){
+		  document.getElementById('email').style.cssText = "border: solid 1px red;";
+		  document.getElementById('email').placeholder = "Invalid Email";
+	  } else if(errorCode == "auth/wrong-password"){
+		  document.getElementById('password').style.cssText = "border: solid 1px red;";
+		  document.getElementById('password').placeholder = "Invalid Password";
+	  } else if(errorCode == "auth/user-not-found"){
+		  document.getElementById('email').style.cssText = "border: solid 1px red;";
+		  document.getElementById('email').placeholder = "User doesn't exist";
+	  }
     });
   // [END auth_signin_password]
 }

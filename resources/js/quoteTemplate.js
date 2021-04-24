@@ -164,18 +164,15 @@ function presData(doc){
 //Global final output
 var finOutPut ="";
 function createPDF(){
-var testDoc = new jsPDF('p', 'pt', 'letter');
+var createDoc = new jsPDF('p', 'pt', 'letter');
 
-testDoc.html(document.getElementById('section-to-print'), {
+createDoc.html(document.getElementById('section-to-print'), {
 			html2canvas: {
 				scale: 0.5
 			},
-			callback: function (testDoc) {
-				finOutPut = testDoc.output('datauristring');
-				//testDoc.output("save","Your Quote");
-				
-				let pdf = new Blob([ testDoc.output('blob') ], { type : 'application/pdf'});
-				window.open(pdf);
+			callback: function (createDoc) {
+				finOutPut = createDoc.output('datauristring');
+				createDoc.output("save",pInfoObj.AddrLine1 + " "+pInfoObj.AddrLine2);
 			}
 		});
 }

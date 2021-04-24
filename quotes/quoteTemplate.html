@@ -64,9 +64,8 @@
 							</div>
 									 
 									  <button type="submit" class="btn btn-primary cancel">Cancel</button>
-									  <button type="submit" name="download" value="Download" class="btn btn-primary download" onclick="saveToComp()">Download</button>
+									  <button type="submit" name="download" value="Download" class="btn btn-primary download" onclick="createPDF()">Download</button>
 									  <button type="submit" name="print" class="btn btn-primary Print" onclick="sendToPrint()">Print</button>
-									  <button type="submit" name="testPDF" class="btn btn-primary Print" onclick="testPDF()">Test</button>
 									  <button type="submit" name="send" value="Submit" class="btn btn-primary send" data-toggle="modal" data-target="#sendViaEmail">Send via Email</button>
 							
 							
@@ -130,7 +129,7 @@
 								  </div>
 								  <div class="modal-body">
 									<h3>Welcome to RQC Quotes Web</h3>
-									<p>From this interface you can review and print the quotes you have saved to date.  If you are having problems logging in click the link below for help.</p>
+									<p>From this interface you can review and print the quote you created for the property.</p>
 									<button type="button" class="btn btn-primary" data-dismiss="modal">Click to Call</button>
 								  </div>
 								  <div class="modal-footer">
@@ -158,7 +157,7 @@
   <!-- Add Firebase products that you want to use -->
   <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-firestore.js"></script>
-  <script src="../resources/js/quoteTemplate.java"></script>
+  <script src="../resources/js/quoteTemplate.js"></script>
 
 </body>
 </html>
