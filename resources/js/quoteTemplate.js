@@ -120,33 +120,33 @@ function presData(doc){
 				if(i == 0){
 					//Create child cell and populate
 					var tableChildCell = document.createElement('td');
-					tableChildCell.setAttribute('id', taskKey+i);
+					tableChildCell.setAttribute('id', key+taskKey+i);
 					tableChildCell.style.cssText = "width: 70%; text-align: left";
 					document.getElementById("tableChildRow"+String(count)).appendChild(tableChildCell);
 					
-					document.getElementById(taskKey+i).innerText = taskKey;
+					document.getElementById(key+taskKey+i).innerText = taskKey;
 				} else if(i == 1){
 				//Create child cell and populate
 					var tableChildCell = document.createElement('td');
-					tableChildCell.setAttribute('id', taskKey+i);
+					tableChildCell.setAttribute('id', key+taskKey+i);
 					tableChildCell.style.cssText = "width: 1%; text-align: left";
 					document.getElementById("tableChildRow"+String(count)).appendChild(tableChildCell);
 				
 				} else if (i == 2){
 				//Create child cell and populate
 					var tableChildCell = document.createElement('td');
-					tableChildCell.setAttribute('id', taskKey+i);
+					tableChildCell.setAttribute('id', key+taskKey+i);
 					tableChildCell.style.cssText = "width: 1%; text-align: left";
 					document.getElementById("tableChildRow"+String(count)).appendChild(tableChildCell);
 				
 				} else {
 					//Create child cell and populate
 					var tableChildCell = document.createElement('td');
-					tableChildCell.setAttribute('id', taskKey+i);
+					tableChildCell.setAttribute('id', key+taskKey+i);
 					tableChildCell.style.cssText = "width: 28%; text-align: right";
 					document.getElementById("tableChildRow"+String(count)).appendChild(tableChildCell);
 					
-					document.getElementById(taskKey+i).innerText = "£"+taskList[taskKey];
+					document.getElementById(key+taskKey+i).innerText = "£"+taskList[taskKey];
 					price += parseFloat(taskList[taskKey]);
 				}
 			}
